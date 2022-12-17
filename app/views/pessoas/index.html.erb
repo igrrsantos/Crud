@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <% if notice %>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <h1>Pessoas</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Data de nascimento</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pessoas.each do |pessoa| %>
+        <tr>
+          <td><%= pessoa.name %></td>
+          <td><%= pessoa.birth_date %></td>
+          <td><% if pessoa.status %>
+                Ativo
+              <% else %>
+                Desativo
+              <% end %>
+          <td>
+            <%= link_to 'Editar', edit_pessoa_path(pessoa), class: "btn btn-secondary", style: "color: white" %>
+          </td>
+          <td>
+            <%= link_to 'Excluir', pessoa, method: :delete, data: { confirm: 'Tem certeza que deseja excluir essa pessoa?' }, class: "btn btn-danger", style: "color: white" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Cadastrar', new_pessoa_path, class: "btn btn-success", style: "color: white" %>
+</div>
+

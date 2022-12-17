@@ -1,0 +1,23 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="person-card">
+        <h2><%= @pessoa.name %></h2>
+        <p><strong>Data de nascimento:</strong> <%= @pessoa.birth_date %></p>
+        <p><strong>Status:</strong>
+          <% if @pessoa.status %>
+              Ativo
+            <% else %>
+              Desativo
+          <% end %>
+        </p>
+        <%= link_to 'Editar', edit_pessoa_path(@pessoa), class: 'btn btn-primary', style: "color: white" %>
+        <%= link_to 'Voltar', pessoas_path, class: 'btn btn-secondary', style: "color: white" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

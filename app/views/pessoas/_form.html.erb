@@ -1,0 +1,47 @@
+<%= form_with(model: pessoa, local: true, html: { class: "form-horizontal" }) do |form| %>
+  <% if pessoa.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(pessoa.errors.count, "error") %> Erro ao salvar:</h2>
+
+      <ul>
+        <% pessoa.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nome, class: "control-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :data_de_nascimento, class: "control-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= form.date_field :birth_date, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= form.label :status %>
+      <%= form.check_box :status, checked: true%>
+    </div>
+  </div>
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>
+          <%= link_to 'Voltar', pessoas_path, class: "btn btn-secondary", style: "color: white" %>
+        </td>
+        <td>
+          <%= form.submit "Salvar", class: "btn btn-primary", style: "color: white" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
