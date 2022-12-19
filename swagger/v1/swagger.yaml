@@ -1,0 +1,75 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/pessoas":
+    get:
+      summary: list pessoas
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create pessoa
+      responses:
+        '200':
+          description: successful
+  "/pessoas/new":
+    get:
+      summary: new pessoa
+      responses:
+        '200':
+          description: successful
+  "/pessoas/{id}/edit":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: edit pessoa
+      responses:
+        '200':
+          description: successful
+  "/pessoas/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show pessoa
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update pessoa
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update pessoa
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete pessoa
+      responses:
+        '200':
+          description: successful
+  "/":
+    get:
+      summary: list pessoas
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
